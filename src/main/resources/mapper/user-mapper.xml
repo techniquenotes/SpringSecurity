@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.springsecurity.dao.UserMapper">
+
+    <sql id="selectFields">
+        id, user_name, password
+    </sql>
+
+    <resultMap id="UserResultMap" type="com.example.springsecurity.entity.User">
+        <result property="id" column="id"/>
+        <result property="userName" column="user_name"/>
+        <result property="password" column="password"/>
+    </resultMap>
+
+    <select id="findByUserName" resultMap="UserResultMap">
+        select <include refid="selectFields"></include>
+        from user_acc
+        where user_name = #{userName}
+    </select>
+
+    <insert id="insertUser" parameterType="com.example.springsecurity.entity.User">
+        insert into user_acc (id, user_name, password)
+        values(#{id}, #{userName}, #{password})
+    </insert>
+
+</mapper>
