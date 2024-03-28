@@ -20,7 +20,7 @@
 
     <insert id="insertUser" parameterType="com.example.springsecurity.entity.User">
         insert into user_acc (id, user_name, password)
-        values(#{id}, #{userName}, #{password})
+        values(#{id}::uuid, #{userName}, #{password})
     </insert>
 
 </mapper>

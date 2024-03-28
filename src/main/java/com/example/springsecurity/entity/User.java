@@ -4,13 +4,12 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
-import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
 public class User implements UserDetails {
 
-    private String id;
+    private UUID id;
 
     private String userName;
 
@@ -53,11 +52,11 @@ public class User implements UserDetails {
     }
 
 
-    public String getId() {
+    public UUID getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 

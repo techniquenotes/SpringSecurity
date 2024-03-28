@@ -18,7 +18,7 @@ import java.util.List;
 
 import static org.springframework.security.config.Customizer.withDefaults;
 
-@Configuration
+@Configuration   //标注在类上，配置Spring容器（应用上下文），相当于<Beans>  </Beans>
 @EnableWebSecurity
 public class SecurityConfiguration {
     private final AuthenticationProvider authenticationProvider;

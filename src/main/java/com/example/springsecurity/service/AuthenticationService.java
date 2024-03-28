@@ -19,7 +19,6 @@ public class AuthenticationService {
     private final PasswordEncoder passwordEncoder;
 
     private final AuthenticationManager authenticationManager;
-
     public AuthenticationService(
             UserMapper userMapper,
             AuthenticationManager authenticationManager,
@@ -32,7 +31,7 @@ public class AuthenticationService {
 
     public User signup(RegisterUserDto input) {
         User user = new User();
-        user.setId(UUID.randomUUID().toString().replace("-", ""));
+        user.setId(UUID.randomUUID());
         user.setUserName(input.getUserName());
         user.setPassword(passwordEncoder.encode(input.getPassword()));
         userMapper.insertUser(user);
